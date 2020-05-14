@@ -10,3 +10,5 @@ Themes worth trying that I've found:
 * https://chesterhow.github.io/tale/
 * https://niklasbuschmann.github.io/contrast/
 * https://fromendworld.github.io/LOFFER/
+
+Deployment with Travis and rsync : [here](https://www.rusiczki.net/2018/01/25/use-travis-to-build-and-deploy-your-jekyll-site-through-ssh/)
