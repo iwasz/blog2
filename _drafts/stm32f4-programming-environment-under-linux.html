@@ -1,0 +1,48 @@
+---
+layout: post
+title: STM32F4 programming environment under Linux
+date: 
+type: post
+parent_id: '0'
+published: false
+password: ''
+status: draft
+categories: []
+tags: []
+meta:
+  _edit_last: '1'
+author:
+  login: iwasz
+  email: lukasz.iwaszkiewicz@gmail.com
+  display_name: admin
+  first_name: ''
+  last_name: ''
+permalink: "/"
+---
+<p>I own STM32F4-DISCOVERY board, and I program it under Linux (Ubuntu), which is my main (and only) operating system both at home, and at work. So when I was considering an ARM development board and particular ARM implementation, I was looking for something that could be easily used with Linux. Partially due to STM32 open <a href="http://www.cs.indiana.edu/~geobrown/book.pdf">source book</a>, and partially thanks to other materials on various websites over the net I gained conviction, that STM32 would be a good choice.</p>
+<p>Here are some links I found useful when I was beginning:</p>
+<p><a href="http://elinux.org/Toolchains">http://elinux.org/Toolchains</a> - general information considering what is what. It reduced my confusion on some terms and ingredients of toolchains in general. It also includes a <a href="http://elinux.org/Toolchains#Prebuilt_toolchains">list of available precompiled stuff</a> that can be used.</p>
+<p>Here are bunch of links on how to configure an environment:</p>
+<ul>
+<li><span style="letter-spacing: 0.05em;"><a href="http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/">http://liviube.wordpress.com/2013/04/22/blink-for-stm32f4-discovery-board-on-linux-with-makefile/</a> - this was especially useful.</span></li>
+<li><a href="http://www.meatandnetworking.com/tutorials/arm-cortex-mx-quickstart/"><span style="letter-spacing: 0.05em;">http://www.meatandnetworking.com/tutorials/arm-cortex-mx-quickstart/</span></a></li>
+<li><a href="http://www.wolinlabs.com/blog/linux.stm32.discovery.gcc.html"><span style="letter-spacing: 0.05em;">http://www.wolinlabs.com/blog/linux.stm32.discovery.gcc.html</span></a></li>
+<li><a href="https://github.com/Malkavian/tuts/tree/master/stm/blinky"><span style="letter-spacing: 0.05em;">https://github.com/Malkavian/tuts/tree/master/stm/blinky</span></a></li>
+</ul>
+<p>I tried precompiled t<a href="http://www.linaro.org/downloads/">oolchain from Linaro</a> which worked great, but there are many other toolchains ready for download over the Internet. Things I did:</p>
+<ul>
+<li><span style="letter-spacing: 0.05em;">Download bare metal version of GCC ARM Embedded 4.7-2013.q1 (bottom of the download page).</span></li>
+<li><span style="letter-spacing: 0.05em;">Set PATH variable accordingly (add bin directory to the PATH. It was /home/iwasz/local/share/gcc-arm-none-eabi-4_7-2013q1/bin in my case).</span></li>
+<li><span style="letter-spacing: 0.05em;">Install openocd (used for debugging) : apt-get install openocd.</span></li>
+<li><span style="letter-spacing: 0.05em;">Get, compile and install <a href="https://github.com/texane/stlink">stlink</a>:</span></li>
+</ul>
+<pre>cd ~/Downloads 
+git clone https://github.com/texane/stlink.git 
+apt-get install libusb-1.0-0-dev 
+cd stlink 
+./autogen.sh 
+./configure --prefix=/home/iwasz/local/ 
+make -j4 install 
+cp 49-stlinkv* /etc/udev/rules.d/ 
+/etc/init.d/udev restart</pre>
+<p>Download and unpack a STM32F4-DISCOVERY <a href="http://www.st.com/web/en/catalog/tools/PF257904">http://www.st.com/web/en/catalog/tools/PF257904</a></p>
