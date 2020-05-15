@@ -27,7 +27,7 @@ Source code for this article is here :
 
 ## Installing the tools
 ### Stm32CubeMX
-Install [Ubuntu 18.10](http://Ubuntu 18.10). I used VirtualBox running on Ubuntu 18.04 for this.
+Install [Ubuntu 18.10](https://ubuntu.com/). I used VirtualBox running on Ubuntu 18.04 for this.
 
 ![Fresh install](/blog/assets/VirtualBox_Ubuntu-18-300x194.png)
 

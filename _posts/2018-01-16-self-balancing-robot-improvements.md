@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Self balancing robot improvements
-permalink: /uncategorized/self-balancing-robot-improvements
+permalink: /uncategorized/self-balancing-robot-improvements/
 post_id: 509
 categories: 
 - Uncategorized

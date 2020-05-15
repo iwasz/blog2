@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The any key
-permalink: http://www.iwasz.pl/electronics/the-any-key/index.html
+permalink: /electronics/the-any-key/
 post_id: 318
 categories: 
 - electronics
@@ -12,22 +12,20 @@ categories:
  + eagle files](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Ftm4c123-drama-button-v2).
 
 	
-*[Host software](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Fany-key-host-app)**[source code](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Ftm4c123-drama-button-v2)**
-[.](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Fany-key-host-app)
+* [Host software](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Fany-key-host-app)              
+* **[source code](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftrunk%2Ftm4c123-drama-button-v2)**
+* [Previous attempt.](http://www.iwasz.pl/electronics/a-chaotic-post-on-hid-keyboard-stm32f407-success-stm32f105-fail/)
+ 
+And a quick video (one blurry shoot):
 
-	
-*[Previous attempt.](http://www.iwasz.pl/electronics/a-chaotic-post-on-hid-keyboard-stm32f407-success-stm32f105-fail/)
-And quick video (blurry one shoot):
+<!-- http://youtu.be/CeLo8d0pDmI -->
 
-http://youtu.be/CeLo8d0pDmI
-
-At some point, after few battles I bravely fought with STM32 I wanted to learn something new. I've been a few times on Texas Instrument's site because I wanted to learn more about BeagleBone black and the Sitara CPU that sits on it and spotted the TIVA microcontrolers somewhere on the page. After quick research they looked very promising. It had all I needed that is : can be easily programmed with GCC stack under Linux, has affordable starting platform (they call them launchpads, and they cost $13 and $20 for TM4C123 and TM4C129 respectively) and, what is most important for me, they have well written peripheral libraries and documentation (i.e. at that time I could only rely on opinions from the Web, but after my first project I definitely can confirm that).
+At some point, after a few battles I bravely fought with STM32 I wanted to learn something new. I've been a few times on Texas Instrument's site because I wanted to learn more about BeagleBone black and the Sitara CPU that sits on it and spotted the TIVA microcontrolers somewhere on the page. After quick research they looked very promising. It had all I needed that is : can be easily programmed with GCC stack under Linux, has affordable starting platform (they call them launchpads, and they cost $13 and $20 for TM4C123 and TM4C129 respectively) and, what is most important for me, they have well written peripheral libraries and documentation (i.e. at that time I could only rely on opinions from the Web, but after my first project I definitely can confirm that).
 
 [caption id="attachment_322" align="alignright" width="225"]
 [![My button assembled](http://www.iwasz.pl/wp-content/uploads/2014/06/IMG_20140603_012851-225x300.jpg)](http://www.iwasz.pl/wp-content/uploads/2014/06/IMG_20140603_012851.jpg) My button assembled[/caption]
 
-So I started a new simple project, which I previously tried to make with STMs and had countless problems with (
-[here is the link](At%20some point, after few battles I bravely fought with STM32 I wanted to learn something new. I've been a few times on Texas Instrument's site because I wanted to learn more about BeagleBone black and their Sitara CPU and spotted the TIVA microcontrolers somewhere on the page. After quick research It looked very promising. It had all I needed that is : can be easily programmed with GCC stack under Linux, has affordable starting platform (they call them launchpads, and they cost $13 and $20 for TM4C123 and TM4C129 respectively) and, what is most important for me, they have well written peripheral libraries and documentation (i.e. at that time I could only rely on opinions from the Web, but after my first project I definitely can confirm that).   So I started a new simple project, which I previously tried to make with STMs and had countless problems with (here is the link http://www.iwasz.pl/electronics/a-chaotic-post-on-hid-keyboard-stm32f407-success-stm32f105-fail/). )). I've got 
+So I started a new simple project, which I previously tried to make with STMs and had countless problems with ([here is the link](http://www.iwasz.pl/electronics/a-chaotic-post-on-hid-keyboard-stm32f407-success-stm32f105-fail/)). I've got 
 [EK-TM4C123GXL](http://www.ti.com/tool/ek-tm4c123gxl) launchpad and it's great. Somewhere in near future I'll try to write another post which would explain how to start development on Linux with GCC toolchain with this board, but for now I can only assure you that getting started was as easy and quick as one evening (I used my own cross-compiler which is 
 [described in previous post here](http://www.iwasz.pl/electronics/toolchain-for-cortex-m4/)). The project aims to construct one button USB-HID keyboard which could be reprogrammed in such a way that pressing the button would send any key code user wishes or even combination of keys if necessary. I imagined, that it would be super cool to have something like that on my desk at work, and if someone comes by and interrupt me with my work, I would ostentatiously hit the big red button which stops the music in my headphones and ask : "what? once again?". TI provides excellent peripheral library with many examples for many evaluation boards. Furthermore they have great USB library which is neatly divided in four tiers dependent on each other. On the very top is the highest level tier called the "Device Class API" which enables one to implement typical devices in just few lines of code (I mean simple HID, DFU, CDC etc.) ST does not have that! Device class API is great, but in fact quite inflexible. For example HID keyboard can have only one interface which is not enough if one wants to implement something more sophisticated. 
 [Here are instructions for designing HID](https://www.microsoft.com/china/whdc/archive/w2kbd.mspx) keyboard design with additional multimedia capabilities (which I wanted so bad). Microsoft recommends that there should be at least two USB interfaces in such a device. One should implement a ordinary keyboard compatible with BOOT interface, so such keyboard would be operational during system start up, when there is no OS support yet, and another one would implement the rest of desired keys such as play/pause, volume up, down and so on. I saw quite a few USB interface layouts conforming to this recommendations over the net, including my own keyboard connected to my computer as I write this, so I assume this is the right way to do this. 

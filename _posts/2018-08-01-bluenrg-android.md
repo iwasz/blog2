@@ -1,7 +1,7 @@
 ---
 layout: post
 title: BlueNRG-2-Android. Source code troubleshooting, bonding, and privacy
-permalink: /electronics/bluenrg-2-android-source-code-troubleshooting-bonding-and-privacy
+permalink: /electronics/bluenrg-2-android-source-code-troubleshooting-bonding-and-privacy/
 post_id: 518
 categories: 
 - electronics

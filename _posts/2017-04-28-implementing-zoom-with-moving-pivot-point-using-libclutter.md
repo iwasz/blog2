@@ -1,19 +1,21 @@
 ---
 layout: post
 title: Implementing zoom with moving pivot point using libclutter
-permalink: http://www.iwasz.pl/uncategorized/implementing-zoom-with-moving-pivot-point-using-libclutter/index.html
+permalink: /uncategorized/implementing-zoom-with-moving-pivot-point-using-libclutter/
 post_id: 480
 categories: 
 - Uncategorized
 ---
 
-I'm making this post, because I struggled with this functionality a lot! I was implementing it (to the extent I was happy with) in the course of 4 or even 5 days! Ok, first goes an animated gif which shows my desired zoom behavior (check out Inkscape, or other graphics programs, they all work the same in this regard):
+I'm making this post because I struggled with this functionality a lot! I was implementing it (to the extent I was happy with) in the course of 4 or even 5 days! Ok, first goes an animated gif which shows my desired zoom behavior (check out Inkscape, or other graphics programs, they all work the same in this regard):
 
-[caption id="" align="alignnone" width="640"]
-![](http://iwasz.pl/files/zoomok.gif) Desired zoom functionality[/caption]
+![Desired zoom functionality](http://iwasz.pl/files/zoomok.gif) 
 
-Basically the idea is that, the center of the scale transformation is where the mouse pointer is on the screen, so the object under the cursor does not move while scaling, whereas other objects around it do. My first, and most obvious implementation (which didn't work as expected) was as such:/*
- * Point center is in screen coordinates. This is where mouse pointer is on the screen.
+Basically the idea is that, the center of the scale transformation is where the mouse pointer is on the screen, so the object under the cursor does not move while scaling, whereas other objects around it do. My first, and most obvious implementation (which didn't work as expected) was as such:
+
+``` cpp
+/*
+ * Point center is in screen coordinates. This is a where mouse pointer is on the screen.
  * The layout is : GtkWindow has ClutterStage which contains ClutterActor scaleLayer
  * (in this function named self), which contains those blue
  * circles you see on animated gif.
@@ -40,13 +42,16 @@ void ScaleLayer::zoomOut (const Point &center)
         // And finalyy perform the scalling. Fair enough, isn't it?
         clutter_actor_set_scale (self, newScale, newScale);
 }
-Here is the outcome of the above:
+```
 
-[caption id="" align="alignnone" width="640"]
-![](http://iwasz.pl/files/zoomfail.gif) Zoom fail[/caption]
+Here is the outcome (wrong) of the above :
+
+
+![Zoom fail](http://iwasz.pl/files/zoomfail.gif) 
 
 It is fine until you move the mouse cursor which changes the pivot point (center of the scale transformation) while scale is not == 1.0. I dunno why this happens. Apparently I do not understand affine transformations as well as I thought, or there is a bug in libclutter (I doubt it). The solution is to convert the pivot point from screen to scaleLayer coordinates before scaling (as I did), and again after scaling. The difference is in scaleLayer coordinates, so it must be converted back to screen coordinates, and the result can be used to cancel this offset you see on the second gif. Here is my current implementation:
 
+``` cpp
 void ScaleLayer::zoomIn (const Point &center)
 {
         double x, y;
@@ -122,6 +127,8 @@ void ScaleLayer::scale (Point const &c, float newScale) {
 
         clutter_actor_move_by (self, mx, my);
 }
+```
+
 The whole project is here : 
 [https://github.com/iwasz/data-flow-gui](https://github.com/iwasz/data-flow-gui)
 Here's the thread which pointed me in right direction : 

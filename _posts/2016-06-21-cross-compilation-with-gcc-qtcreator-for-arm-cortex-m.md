@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cross compilation with GCC & QtCreator for ARM Cortex M
-permalink: http://www.iwasz.pl/uncategorized/cross-compilation-with-gcc-qtcreator-for-arm-cortex-m/index.html
+permalink: /uncategorized/cross-compilation-with-gcc-qtcreator-for-arm-cortex-m/
 post_id: 469
 categories: 
 - Uncategorized
@@ -10,21 +10,25 @@ categories:
 **This post is outdated!!**
 . Please see http://www.iwasz.pl/electronics/stm32-on-ubuntu-linux-step-by-step/ for more up to date instructions.
 
-I used Eclipse CDT for years for C/C++ and was disappointed by its bulkiness, slowness and memory usage. I did mostly embedded, and sometimes GTK+ desktop apps (even OpenGL once or twice). I looked for a replacement, tried dozen or more IDEs and editors, and finally found out the QtCreator (my main concerns were : great code navigation - eclipse often get confused wit serious, templated C++ code), great code completion, and CMake integration. I am satisfied for now (It's been a year now), and I use it for all but Qt. But all of a sudden, wen a new version appeared, I came across a minor flaw in CMake builder, which reported an error like "Can't link a test program". Obviously he cannot, because he used host compiler instead of ARM one.
+I used Eclipse CDT for years for C/C++ and was disappointed by its bulkiness, slowness, and memory usage. I did mostly embedded, and sometimes GTK+ desktop apps (even OpenGL once or twice). I looked for a replacement, tried dozen or more IDEs and editors, and finally found out the QtCreator (my main concerns were : great code navigation - eclipse often get confused wit serious, templated C++ code), great code completion, and CMake integration. I am satisfied for now (It's been a year now), and I use it for all but Qt. But all of a sudden, wen a new version appeared, I came across a minor flaw in CMake builder, which reported an error like "Can't link a test program". Obviously it cannot because he used a host compiler instead of ARM one.
 
-So in version prior to 4.0.0 i used to configure my project with cmake like:
+So in versions prior to 4.0.0 I used to configure my project with cmake like:
 
+``` sh
 cd build
 cmake ..
 make
-Then, from Qt, i simply compiled the project, and it worked flawlessly. But since QtCreator 4.0.0 it started to invoke cmake in every possible situation. Be it a IDE startup, or saving a CMakeLists.txt file. And he did it with 
--DCMAKE_CXX_COMPILER=xyz where "xyz" was a path configured in 
-Tools -> Options -> Build & Run -> Compilers. If I run cmake manually, without this CMAKE_CXX_COMPILER variable set, everything was OK. I saw in the Internet, that many people had the same problem, and used QtCreator for embedded like I do (
+```
+
+Then, from QtCreator, I simply compiled the project, and it worked flawlessly. But since QtCreator 4.0.0 it started to invoke cmake in every possible situation. Be it an IDE startup, or saving a CMakeLists.txt file. And it did it with 
+`-DCMAKE_CXX_COMPILER=xyz` where "xyz" was a path configured in 
+Tools -> Options -> Build & Run -> Compilers. If I run cmake manually, without this `CMAKE_CXX_COMPILER` variable set, everything was OK. I saw on the Internet, that many people had the same problem, and used QtCreator for embedded like I do (
 [see comments here](https://blog.qt.io/blog/2016/05/11/qt-creator-4-0-0-released/)).
 
-So I decided, that instead of forcing QtCreator to stop invoking cmake, or invoking it with different parameters, I should fix my CMakeLists.txt so it would run as QtCreator want it. Solution I found was 
+So I decided, that instead of forcing QtCreator to stop invoking cmake, or invoking it with different parameters, I should fix my CMakeLists.txt so it would run as QtCreator want it. A solution I found was 
 [CMAKE_FORCE_C_COMPILER and CMAKE_FORCE_CXX_COMPILER documented here](https://cmake.org/Wiki/CMake_Cross_Compiling#The_toolchain_file). My CMakeLists.txt looks like this:
 
+``` cmake
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
 SET (CMAKE_VERBOSE_MAKEFILE OFF)
@@ -50,8 +54,11 @@ ADD_CUSTOM_TARGET(${CMAKE_PROJECT_NAME}.bin ALL DEPENDS ${CMAKE_PROJECT_NAME}.el
 
 FIND_PROGRAM (ST_FLASH st-flash)
 ADD_CUSTOM_TARGET("upload" DEPENDS ${CMAKE_PROJECT_NAME}.elf COMMAND ${ST_FLASH} --reset write ${CMAKE_PROJECT_NAME}.bin 0x8000000)
+```
+
 And the "toolchain file" is like this:
 
+``` cmake
 SET (TOOLCHAIN_PREFIX "/home/iwasz/local/share/armcortexm0-unknown-eabi" CACHE STRING "")
 SET (TARGET_TRIPLET "armcortexm0-unknown-eabi" CACHE STRING "")
 SET (DEVICE "STM32F072xB")
@@ -87,21 +94,15 @@ INCLUDE_DIRECTORIES("${CUBE_ROOT}/Drivers/CMSIS/Device/ST/STM32F0xx/Include/")
 INCLUDE_DIRECTORIES("${CUBE_ROOT}/Drivers/CMSIS/Include/")
 
 ENABLE_LANGUAGE (ASM-ATT)
+```
+
 Two most important changes were:
 
-*Using CMAKE_FORCE_CXX_COMPILER macro instead of simply setting CMAKE_CXX_COMPILER var.
+* Using `CMAKE_FORCE_CXX_COMPILER` macro instead of simply setting `CMAKE_CXX_COMPILER` var. 	
+* Including the toolchain file (and thus setting / forcing the compiler) before PROJECT macro.
 
- 	
-*Including the toolchain file (and thus setting / forcing the compiler) before PROJECT macro.
 My configuration as of writing this:
-
-*Qt Creator 4.0.2, Based on Qt 5.7.0 (GCC 4.9.1 20140922 (Red Hat 4.9.1-10), 64 bit), Built on Jun 13 2016 01:05:36, From revision 47b4f2c738
-
- 	
-*Host system : Ubuntu 15.10, Linux ingram 4.2.0-38-generic #45-Ubuntu SMP Wed Jun 8 21:21:49 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
-
- 	
-*Host GCC : gcc (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010
-
- 	
-*Target GCC : armcortexm0-unknown-eabi-gcc (crosstool-NG crosstool-ng-1.21.0-74-g6ac93ed - iwasz) 5.2.0
+* Qt Creator 4.0.2, Based on Qt 5.7.0 (GCC 4.9.1 20140922 (Red Hat 4.9.1-10), 64 bit), Built on Jun 13 2016 01:05:36, From revision 47b4f2c738	
+* Host system : Ubuntu 15.10, Linux ingram 4.2.0-38-generic #45-Ubuntu SMP Wed Jun 8 21:21:49 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux 	
+* Host GCC : gcc (Ubuntu 5.2.1-22ubuntu2) 5.2.1 20151010 	
+* Target GCC : armcortexm0-unknown-eabi-gcc (crosstool-NG crosstool-ng-1.21.0-74-g6ac93ed - iwasz) 5.2.0
