@@ -1,6 +1,7 @@
-My blog : http://iwasz.pl
+My blog written in Jekyll : http://iwasz.pl [![Build Status](https://travis-ci.org/iwasz/blog2.svg?branch=master)](https://travis-ci.org/iwasz/blog2)
 
 Themes worth trying that I've found:
+
 * https://yous.github.io/whiteglass/2017/01/05/welcome-to-jekyll/
 * https://thelehhman.com/
 * https://thelehhman.com/texture/#
@@ -11,4 +12,8 @@ Themes worth trying that I've found:
 * https://niklasbuschmann.github.io/contrast/
 * https://fromendworld.github.io/LOFFER/
 
-Deployment with Travis and rsync : [here](https://www.rusiczki.net/2018/01/25/use-travis-to-build-and-deploy-your-jekyll-site-through-ssh/)
+Other info: 
+
+* Deployment with Travis and rsync (a guide) : [here](https://www.rusiczki.net/2018/01/25/use-travis-to-build-and-deploy-your-jekyll-site-through-ssh/). 
+* Comment system will be [this](https://github.com/jacobwb/hashover-next).
+* [Theme used](https://github.com/yous/whiteglass) - this link contains further useful info.

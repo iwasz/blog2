@@ -4,4 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-Thats about me.
+That's about me.
