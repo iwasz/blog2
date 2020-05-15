@@ -24,16 +24,16 @@ After deciding that I would try to make such a thing which took approx. 1 second
 * [Intermec](http://community.intermec.com/) community - they even have forum, and some community around the site.
 Photos after dismantling the thing:
 
-|                                                          |                                                          |                                                          |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| ![Printer](/blog/assets/IMG_20140617_185647-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_185416-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_185551-150x150.jpg) |
-| Main Board                                               | Main board mounted on the plastic frame.                 | Main board                                               |
-| ![Printer](/blog/assets/IMG_20140617_185630-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_190016-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_190024-150x150.jpg) |
-| Main board                                               | Bottom view. Without the casing.                         | Printer from above without the casing.                   |
-| ![Printer](/blog/assets/IMG_20140617_190244-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_190255-150x150.jpg) | ![Printer](/blog/assets/IMG_20140617_190332-150x150.jpg) |
-| The head. It is 2005 made I believe.                     | Thermal head sticker.                                    | Thermal head closeup                                     |
-| ![Printer](/blog/assets/IMG_20140617_190444-150x150.jpg) |                                                          |                                                          |
-| 7.2V Batteries, pretty dead.                             |                                                          |                                                          |
+|                                                     |                                                     |                                                     |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| ![Printer](/assets/IMG_20140617_185647-150x150.jpg) | ![Printer](/assets/IMG_20140617_185416-150x150.jpg) | ![Printer](/assets/IMG_20140617_185551-150x150.jpg) |
+| Main Board                                          | Main board mounted on the plastic frame.            | Main board                                          |
+| ![Printer](/assets/IMG_20140617_185630-150x150.jpg) | ![Printer](/assets/IMG_20140617_190016-150x150.jpg) | ![Printer](/assets/IMG_20140617_190024-150x150.jpg) |
+| Main board                                          | Bottom view. Without the casing.                    | Printer from above without the casing.              |
+| ![Printer](/assets/IMG_20140617_190244-150x150.jpg) | ![Printer](/assets/IMG_20140617_190255-150x150.jpg) | ![Printer](/assets/IMG_20140617_190332-150x150.jpg) |
+| The head. It is 2005 made I believe.                | Thermal head sticker.                               | Thermal head closeup                                |
+| ![Printer](/assets/IMG_20140617_190444-150x150.jpg) |                                                     |                                                     |
+| 7.2V Batteries, pretty dead.                        |                                                     |                                                     |
 
 The sticker is important because it has markings which informs you about certain resistance levels in the head. My head is a “C” type. 
 
@@ -56,7 +56,7 @@ I've written the LTC chip looks promising, because it connects the printer to th
 * The whole device can be powered from 12V supply (I read that somewhere).	
 * Let's try it! It seems to work. At least a PC and the printer are communicating. Wiring looks like this:
 
-![Printer](/blog/assets/IMG_20140618_001437-150x150.jpg) ![Printer](/blog/assets/IMG_20140618_000309-150x150.jpg)
+![Printer](/assets/IMG_20140618_001437-150x150.jpg) ![Printer](/assets/IMG_20140618_000309-150x150.jpg)
 
 Costs so far:
 * Printer : 25PLN ($8).
@@ -66,4 +66,4 @@ Costs so far:
 [described my problems on the Intermec](http://community.intermec.com/t5/General-Intermec-Device/PW40-is-it-broken-or-not/m-p/27118) forums and still waiting for some reply. In short the problem is, that I don't really know for sure if this is me doing something wrong, or the printer is broken (it was sold on auction as broken, but the seller couldn't tell for sure if it is really broken or not). So after two evenings the situation looks that I am able to print only one character in a row. If I'm sending more than 1 character to print, it hangs. To make matters worse, my printer won't print a self test page as it is described in the manual. It feeds paper a little and that's all. At the other hand I 
 [found a datasheet](http://zival.ru/sites/default/files/download/ltp3445.pdf) of the printer head used in my printer, but using it directly would be a triumph of form over the content I'm afraid, and I don't have enough time for that (i.e. making my own printer from scratch). But I'm overambitious you know, so who knows...
 
-![The printer is broken](/blog/assets/IMG_20140620_123905-300x225.jpg)
+![The printer is broken](/assets/IMG_20140620_123905-300x225.jpg)

@@ -13,7 +13,7 @@ I was dissatisfied with robot's performance, so I experimented a lot with variou
 
 ### Better motors
 
-![Better motors picture](/blog/assets/IMG_20180107_163408-e1516133185673-169x300.jpg)
+![Better motors picture](/assets/IMG_20180107_163408-e1516133185673-169x300.jpg)
 
 I decided, my first set of motors (Dagu DG02S 48:1) have to low torque on low RPM (driven from DRV8835 H-Bridge again with PWM). The robot was able to stand, but wiggled (video in the previous post). So I changed them to JK28HS32 stepper motors, which proved to be even weaker. They simply have to low torque in all RPM range for the weight of my robot. More disadvantages:
 
@@ -27,7 +27,7 @@ So, not without disappointment I moved to another set of motors which happened t
 * They run on 12V, so I had to rework some of the electronics. 	
 * They might be a little bit faster, though at the end I was able to stabilize the thing pretty satisfactory.
 
-![Motors ina a chassis](/blog/assets/IMG_20180107_173324-300x205.jpg)
+![Motors ina a chassis](/assets/IMG_20180107_173324-300x205.jpg)
 
 To sum up : high-quality motors eliminate one point of failure and let you focus on different aspects if something is failing. My ideal motors, that I would like to have are:
 

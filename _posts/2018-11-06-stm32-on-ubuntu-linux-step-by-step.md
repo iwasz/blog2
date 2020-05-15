@@ -29,7 +29,7 @@ Source code for this article is here :
 ### Stm32CubeMX
 Install [Ubuntu 18.10](https://ubuntu.com/). I used VirtualBox running on Ubuntu 18.04 for this.
 
-![Fresh install](/blog/assets/VirtualBox_Ubuntu-18-300x194.png)
+![Fresh install](/assets/VirtualBox_Ubuntu-18-300x194.png)
 
 Make sure everything is up to date. Run apt update + upgrade, or use GUI Ubuntu provides.
 
@@ -86,14 +86,14 @@ sudo apt install mc openocd dos2unix gdb-multiarch
 ```
 
 ## The project
-![CubeMX window](/blog/assets/Screenshot-from-2018-11-02-12-42-39-300x206.png)
+![CubeMX window](/assets/Screenshot-from-2018-11-02-12-42-39-300x206.png)
 
 Run Stm32CubeMX and start a new project. In the "Part Number Search" in the top left corner insert "stm32f407vg". This is the model of a µC we will be using and which is mounted in the STM32F4-DISCOVERY, a popular evaluation board (you can get it from all major distributors, though 
 [findchips.com shows](https://www.findchips.com/search/stm32f4-discovery), that availability is not at its best right now).
 
 Click on the blue link-like label in the search result table and start the project. The next thing you'll see is a view of your microcontroller with all the peripherals and GPIOs initialized according to the board's specs. This is because the board itself contains some neat stuff like accelerometer, digital to analog audio chip with amplifier, and so on. We are focused on PD12 - PD15 which are connected directly to LEDs.
 
-![CubeMX setup](/blog/assets/Screenshot-from-2018-11-05-13-32-46-300x139.png)Turn off USB support. It uses some additional files which makes compilation a little bit harder. Make sure that USB_OTG_FS Mode is set to "Disable" in the left pane. Also on the "Configuration" tab make sure, that USB middleware is not used.
+![CubeMX setup](/assets/Screenshot-from-2018-11-05-13-32-46-300x139.png)Turn off USB support. It uses some additional files which makes compilation a little bit harder. Make sure that USB_OTG_FS Mode is set to "Disable" in the left pane. Also on the "Configuration" tab make sure, that USB middleware is not used.
 
 Turn off other unnecessary peripherals like SPI, I2C, USARTs. The more the peripherals, the more source files from SDK we will have to compile, so in my project only SYS, RCC and of course GPIOs are configured. Please check my [blinky.ioc](https://github.com/iwasz/blinky01/blob/master/blinky.ioc) in case of trouble or simply experiment with CubeMx's output.
 
@@ -307,7 +307,7 @@ Feel free to post a comment in case of any trouble, we will sort it out.
 
 ## Uploading
 
-![Stm32-disco blinking](/blog/assets/blinky.gif)
+![Stm32-disco blinking](/assets/blinky.gif)
 
 I don't know why but, most of the Internet and books says "downloading" to describe the process of transmitting a binary firmware from host (PC) to the target (µC). I find it very confusing, because when a file is moved from a PC to some remote server, everybody calls it "uploading" not "downloading".
 
@@ -353,41 +353,41 @@ Oh, and I added an "upload" target in the CMakeLists.txt, so you can simply do "
 Now that our project compiles and runs in a console we can integrate it with QtCreator (or other IDE). Run it, and open **Help -> About plugins**. Make sure, that BareMetal (experimental) plugin is active and restart the IDE when asked.
 
 
-![Installed plugins in QtCreator](/blog/assets/plugins-qtcreator-300x202.png)
+![Installed plugins in QtCreator](/assets/plugins-qtcreator-300x202.png)
 
 Now open **Tools -> Options** from the main menu.
 
 In the **Devices** section go to **Bare Metal** tab and **Add** OpenOCD GDB server provider. Defaults are OK, don't change anything.
 
-![Openocd config](/blog/assets/bare-metal-gdb-provider-300x187.png)
+![Openocd config](/assets/bare-metal-gdb-provider-300x187.png)
 
 Apply changes and move to the **Devices** tab. Add new **Bare Metal Device**, name it accordingly (I named it Stm32F4) and pick OpenOCD GDB Server provider we created in the previous step.
 
-![Devices popup](/blog/assets/Screenshot-from-2018-11-05-23-38-54-300x187.png)
+![Devices popup](/assets/Screenshot-from-2018-11-05-23-38-54-300x187.png)
 
 Go to **Kits** section, **Compilers** tab, and make sure GCC for ARM 32 got auto-detected. If it weren't (because you installed some other GCC based toolchain in some non-standard place) add it there using the **Add** button.
 
-![Kits popup](/blog/assets/Screenshot-from-2018-11-05-23-41-52-300x206.png)
+![Kits popup](/assets/Screenshot-from-2018-11-05-23-41-52-300x206.png)
 
 Go to the **Debuggers** tab and add ```gdb-multiarch``` which we installed previously like so (remember to Apply after each modification):
 
-![Kits popup again](/blog/assets/Screenshot-from-2018-11-05-23-55-55-300x206.png)
+![Kits popup again](/assets/Screenshot-from-2018-11-05-23-55-55-300x206.png)
 
 Finally go to the **Kits** tab and add new. Pick a name (you can even add an icon), change **Device type** to Bare Metal Device, and pick proper one in the combo below it. In the **Compiler** combos pick the ones we created / found in the Compilers tab, and do the same with the **Debugger** combo.
 
 Change **CMake Configuration** (last row) so it looks like this (those are the options we passed to the CMake using -D flag):
 
-![CMake config window](/blog/assets/Screenshot-from-2018-11-06-00-12-57-300x106.png)
+![CMake config window](/assets/Screenshot-from-2018-11-06-00-12-57-300x106.png)
 
 After all this effort you should be left with a new kit looking like that:
 
-![Finished kit setup](/blog/assets/Screenshot-from-2018-11-06-00-02-25-300x229.png)
+![Finished kit setup](/assets/Screenshot-from-2018-11-06-00-02-25-300x229.png)
 
 Now we can open our project. Delete old build directory to be sure old config doesn't break anything and open the project by selecting CMakeLists.txt. If you don't delete our old build directory created by hand in previous paragraphs, new "temporary" kit gets created and it can be used after some modifications, but we already have better one.
 
 You will be presented with **Configure Project** window where you can pick a kit to be used. Uncheck the **Desktop** kit, and check our **Stm32F4** one:
 
-![Configure project tab](/blog/assets/Screenshot-from-2018-11-06-00-56-24-300x175.png)
+![Configure project tab](/assets/Screenshot-from-2018-11-06-00-56-24-300x175.png)
 
 Click **Configure** project and hit Ctrl-B to verify that everything compiles.
 
@@ -401,4 +401,4 @@ openocd -f /usr/share/openocd/scripts/interface/stlink-v2.cfg -f /usr/share/open
 
 This way GDB remote protocol server is started (not sure about the name), and "normal" GDB can communicate with it. Switch to QtCreator, hit **F5** and that's it! Hit **Shift-F5** to pause program, and you will be presented with a call stack, variables, and so On. **F10** is for stepping over, **F11** for stepping into, and **Shift-F11** for stepping out. Happy debugging.
 
-![Debugging in QtCreator](/blog/assets/Screenshot-from-2018-11-06-01-26-00-300x179.png)
+![Debugging in QtCreator](/assets/Screenshot-from-2018-11-06-01-26-00-300x179.png)

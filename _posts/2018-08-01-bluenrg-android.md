@@ -60,7 +60,7 @@ ret = aci_gap_set_authentication_requirement (BONDING, MITM_PROTECTION_NOT_REQUI
 and got `BLE_STATUS_OUT_OF_MEMORY` (0x48) when adding first (and only) custom GATT service. Turns out, that when SC is supported, there is another characteristic added to the Genaral Access service called 
 [Central Address Resolution characteristic](https://www.bluetooth.com/specifications/gatt/viewer?attributeXmlFile=org.bluetooth.characteristic.gap.central_address_resolution.xml). So I needed to fire the `BLUENRG1_Wizard.exe` and generate new header file with "privacy - controller" option turned on. This way ATT attributes number was increased by 1 and the out of memory error went away.
 
-![BlueNRG radio parameters wizard](/blog/assets/bluenrg-wizard-privacy-300x253.png)
+![BlueNRG radio parameters wizard](/assets/bluenrg-wizard-privacy-300x253.png)
 
 Next problem was that `aci_gap_set_discoverable` started to return 
 `BLE_STATUS_INVALID_PARAMS` (0x42). It turns out, that when host or controller privacy is turned on, 
@@ -87,7 +87,7 @@ STATIC_RANDOM_ADDR);
 
 I wanted to bond using the "Just-Works" scheme, but this particular set of calls above made pairing process behave very oddly. I was able to scan for my device (still using nRF connect), and to bond (… -> bond), but it would not appear on the "bonded" list as it usually happened:
 
-![Nrf connect and bonding peculiarity](/blog/assets/nrf-connect-bonding-peculiar-300x267.jpg)
+![Nrf connect and bonding peculiarity](/assets/nrf-connect-bonding-peculiar-300x267.jpg)
 
 And although I could connect to such oddly bonded device and even reconnect to id multiple times, what I could not achieve was to reconnect after devices disconnected by themselves due to signal loss (i.e. when a cellphone was carried away). In such case, when I brought my cellphone back and turned scanning on, my BlueNRG device would reappear in the "Scanned" list but with different address! Trying to connect to it would return GAT ERROR 0x3d in the nRF logs which means `BLE_ERROR_CONNECTION_END_WITH_MIC_FAILURE` (MIC is some little chunk of bytes added to the payload when privacy is turned on if I remember correctly). To fix this I had to do two things:
 

@@ -18,7 +18,7 @@ The frame is made of 8mm aluminium pipes, 2 sheets of 2mm solid transparent poly
 
 ### Motors
 
-![Motors dagu](/blog/assets/86_P_1388386610626-300x219.jpg)
+![Motors dagu](/assets/86_P_1388386610626-300x219.jpg)
 
 Motors are labeled "Dagu DG02S 48:1", and I am disappointed, because they have very low torque at low RPM, and are of a low quality I think (their low price also suggests that). The consequences are, that they are unable to move my robot gently and precisely, but instead, they start all of a sudden with a couple of RPMs. At very low PWM duty cycle they are unable to move wheels at all, even with no load. The lowest RPM I can get out of them is probably a couple of RPMs, which sounds OK, but I think, that many of my problems arise from them being unable to gently move the wheels a few millimeters forth and back. 
 **Such a gentle movement is in my opinion crucial**
