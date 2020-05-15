@@ -14,6 +14,13 @@ Themes worth trying that I've found:
 
 Other info: 
 
+* [Travis build](https://travis-ci.org/github/iwasz/blog2)
 * Deployment with Travis and rsync (a guide) : [here](https://www.rusiczki.net/2018/01/25/use-travis-to-build-and-deploy-your-jekyll-site-through-ssh/). 
 * Comment system will be [this](https://github.com/jacobwb/hashover-next).
 * [Theme used](https://github.com/yous/whiteglass) - this link contains further useful info.
+
+```cpp
+int main () {
+    
+}
+```
