@@ -6,10 +6,9 @@ post_id: 509
 categories: 
 - Uncategorized
 ---
+I was dissatisfied with robot's performance, so I experimented a lot with various aspects to improve it. But along the way, the robot, however simple in concept, proved to be a pretty complex system which depends on many factors that I didn't anticipate. This variety of factors which altogether influence its movements make it very difficult to troubleshoot problems. So, now I'll try to recall my adventures with it in order. Oh, and my objective (best case scenario) is to make it stable to the point it stands completely still. This is what I found the most difficult.
 
 [![Ballancing robot ballances](https://img.youtube.com/vi/M3uyGxLnFOw/0.jpg)](http://www.youtube.com/watch?v=M3uyGxLnFOw)
-
-I was dissatisfied with robot's performance, so I experimented a lot with various aspects to improve it. But along the way, the robot, however simple in concept, proved to be a pretty complex system which depends on many factors that I didn't anticipate. This variety of factors which altogether influence its movements make it very difficult to troubleshoot problems. So, now I'll try to recall my adventures with it in order. Oh, and my objective (best case scenario) is to make it stable to the point it stands completely still. This is what I found the most difficult.
 
 ### Better motors
 
