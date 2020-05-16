@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Joanna Newsom
-permalink: http://www.iwasz.pl/uncategorized/joanna-newsom/index.html
+permalink: /uncategorized/joanna-newsom/
 post_id: 18
 categories: 
 - Uncategorized

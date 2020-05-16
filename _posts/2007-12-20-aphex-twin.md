@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aphex Twin
-permalink: http://www.iwasz.pl/uncategorized/aphex-twin/index.html
+permalink: /uncategorized/aphex-twin/
 post_id: 28
 categories: 
 - Uncategorized

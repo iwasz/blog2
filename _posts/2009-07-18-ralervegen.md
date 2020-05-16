@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Rallarvegen
-permalink: http://www.iwasz.pl/uncategorized/ralervegen/index.html
+permalink: /uncategorized/ralervegen/
 post_id: 62
 categories: 
 - Norwegia2009

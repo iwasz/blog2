@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lusterfiord
-permalink: http://www.iwasz.pl/uncategorized/lusterfiord/index.html
+permalink: /uncategorized/lusterfiord/
 post_id: 57
 categories: 
 - Norwegia2009

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Przyjaciele w Radomiu
-permalink: http://www.iwasz.pl/uncategorized/przyjaciele-w-radomiu/index.html
+permalink: /uncategorized/przyjaciele-w-radomiu/
 post_id: 188
 categories: 
 - Uncategorized

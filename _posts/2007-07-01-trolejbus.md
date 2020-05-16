@@ -1,7 +1,7 @@
 ---
 layout: post
 title: trolejbus
-permalink: http://www.iwasz.pl/uncategorized/trolejbus/index.html
+permalink: /uncategorized/trolejbus/
 post_id: 15
 categories: 
 - Uncategorized

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dupa-szita
-permalink: http://www.iwasz.pl/uncategorized/dupa-szita/index.html
+permalink: /uncategorized/dupa-szita/
 post_id: 53
 categories: 
 - Norwegia2009

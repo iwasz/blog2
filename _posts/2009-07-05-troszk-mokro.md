@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Troszkę mokro
-permalink: http://www.iwasz.pl/uncategorized/troszk-mokro/index.html
+permalink: /uncategorized/troszk-mokro/
 post_id: 44
 categories: 
 - Norwegia2009

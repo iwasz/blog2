@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Billie Holiday, Hooverphonic i Chef
-permalink: http://www.iwasz.pl/uncategorized/billie-holiday-hooverphonic-i-cheef/index.html
+permalink: /uncategorized/billie-holiday-hooverphonic-i-cheef/
 post_id: 24
 categories: 
 - Uncategorized

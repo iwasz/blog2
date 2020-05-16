@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dalszy ciąg dnia 1
-permalink: http://www.iwasz.pl/uncategorized/dalszy-ciag-dnia-1/index.html
+permalink: /uncategorized/dalszy-ciag-dnia-1/
 post_id: 43
 categories: 
 - Norwegia2009

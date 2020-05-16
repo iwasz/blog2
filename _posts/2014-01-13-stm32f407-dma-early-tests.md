@@ -1,25 +1,18 @@
 ---
 layout: post
 title: STM32F407 DMA early tests
-permalink: http://www.iwasz.pl/electronics/stm32f407-dma-early-tests/index.html
+permalink: /electronics/stm32f407-dma-early-tests/
 post_id: 263
 categories: 
 - electronics
 ---
-
-Research notes. Useful links:*Frank's site (very valuable stuff) : 
-[part 1](http://blog.frankvh.com/2011/08/18/stm32f2xx-dma-controllers/), 
-[part 2](http://blog.frankvh.com/2011/11/21/stm32f2xx-dma-controllers-part-2/), and 
+Research notes. Useful links:
+* Frank's site (very valuable stuff) : 
+[part 1](http://blog.frankvh.com/2011/08/18/stm32f2xx-dma-controllers/), [part 2](http://blog.frankvh.com/2011/11/21/stm32f2xx-dma-controllers-part-2/), and 
 [part 3](http://blog.frankvh.com/2012/01/13/stm32f2xx-stm32f4xx-dma-maximum-transactions/) (part 3 covers then undocumented bug in µCs which Frank found).
-
-	
-*[Wikipedia article](http://en.wikipedia.org/wiki/Direct_memory_access) for complete beginners like me.
-
-	
-*[Reference manual](http://www.st.com/web/en/resource/technical/document/reference_manual/DM00031020.pdf)
-
-	
-*[Code for this article](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftags%2Fstm32-dma-tests-simple-DMA-read-usart)
+* [Wikipedia article](http://en.wikipedia.org/wiki/Direct_memory_access) for complete beginners like me.	
+* [Reference manual](http://www.st.com/web/en/resource/technical/document/reference_manual/DM00031020.pdf)	
+* [Code for this article](https://code.google.com/p/iwasz-sandbox/source/browse/#svn%2Ftags%2Fstm32-dma-tests-simple-DMA-read-usart)
 
 [DMA](http://en.wikipedia.org/wiki/Direct_memory_access) is a peripheral that can copy data between other peripherals and memory or between memory and memory. It used to be implemented in form of 
 [separate IC](http://en.wikipedia.org/wiki/Intel_8237) in early days, but in modern µCs it is of course integrated inside the single chip.
@@ -32,6 +25,7 @@ Streams have configurable priorities in case two or more streams request DMA con
 
 So here comes the first DMA test I wrote (tested on STM32F407-DISCOVERY). It writes to USART1:
 
+``` cpp
 #include <stm32f4xx.h>
 #include "logf.h"
 
@@ -271,4 +265,4 @@ int main (void)
         while (1) {
         }
 }
- 
+```

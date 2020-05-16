@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Wyruszamy
-permalink: http://www.iwasz.pl/uncategorized/wyruszamy/index.html
+permalink: /uncategorized/wyruszamy/
 post_id: 40
 categories: 
 - Norwegia2009

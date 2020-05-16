@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Moja mama i moje koleżanki
-permalink: http://www.iwasz.pl/uncategorized/moja-mama-i-moje-kolezanki/index.html
+permalink: /uncategorized/moja-mama-i-moje-kolezanki/
 post_id: 41
 categories: 
 - Norwegia2009

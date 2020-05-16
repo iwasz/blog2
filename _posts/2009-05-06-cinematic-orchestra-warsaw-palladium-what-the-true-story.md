@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cinematic Orchestra, Warsaw, Palladium. What!? — The true story.
-permalink: http://www.iwasz.pl/uncategorized/cinematic-orchestra-warsaw-palladium-what-the-true-story/index.html
+permalink: /uncategorized/cinematic-orchestra-warsaw-palladium-what-the-true-story/
 post_id: 38
 categories: 
 - Uncategorized

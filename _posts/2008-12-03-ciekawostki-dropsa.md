@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ciekawostki dropsa
-permalink: http://www.iwasz.pl/uncategorized/ciekawostki-dropsa/index.html
+permalink: /uncategorized/ciekawostki-dropsa/
 post_id: 37
 categories: 
 - Uncategorized

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: feedreader
-permalink: http://www.iwasz.pl/uncategorized/feedreader/index.html
+permalink: /uncategorized/feedreader/
 post_id: 30
 categories: 
 - Uncategorized

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Trollstigen part 2
-permalink: http://www.iwasz.pl/uncategorized/trollstigen-part2/index.html
+permalink: /uncategorized/trollstigen-part2/
 post_id: 50
 categories: 
 - Norwegia2009

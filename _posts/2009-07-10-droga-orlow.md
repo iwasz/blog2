@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Droga Orłów
-permalink: http://www.iwasz.pl/uncategorized/droga-orlow/index.html
+permalink: /uncategorized/droga-orlow/
 post_id: 52
 categories: 
 - Norwegia2009

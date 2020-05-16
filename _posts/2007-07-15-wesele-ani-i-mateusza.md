@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Wesele Ani i Mateusza
-permalink: http://www.iwasz.pl/uncategorized/wesele-ani-i-mateusza/index.html
+permalink: /uncategorized/wesele-ani-i-mateusza/
 post_id: 23
 categories: 
 - Uncategorized

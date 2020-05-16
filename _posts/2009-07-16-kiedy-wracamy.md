@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kiedy wracamy
-permalink: http://www.iwasz.pl/uncategorized/kiedy-wracamy/index.html
+permalink: /uncategorized/kiedy-wracamy/
 post_id: 59
 categories: 
 - Norwegia2009

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pan Jurek i ja
-permalink: http://www.iwasz.pl/uncategorized/pan-jurek-i-ja/index.html
+permalink: /uncategorized/pan-jurek-i-ja/
 post_id: 185
 categories: 
 - Uncategorized

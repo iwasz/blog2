@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Przestańcie zabijać te pająki
-permalink: http://www.iwasz.pl/uncategorized/przestancie-zabijac-te-pajaki/index.html
+permalink: /uncategorized/przestancie-zabijac-te-pajaki/
 post_id: 47
 categories: 
 - Norwegia2009

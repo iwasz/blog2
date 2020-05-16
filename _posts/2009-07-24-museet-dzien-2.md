@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Museet, dzien 2
-permalink: http://www.iwasz.pl/uncategorized/museet-dzien-2/index.html
+permalink: /uncategorized/museet-dzien-2/
 post_id: 70
 categories: 
 - Norwegia2009

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Eraserhead
-permalink: http://www.iwasz.pl/uncategorized/eraserhead/index.html
+permalink: /uncategorized/eraserhead/
 post_id: 33
 categories: 
 - Uncategorized

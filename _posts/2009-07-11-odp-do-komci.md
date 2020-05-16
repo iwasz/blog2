@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Odp. Do komci
-permalink: http://www.iwasz.pl/uncategorized/odp-do-komci/index.html
+permalink: /uncategorized/odp-do-komci/
 post_id: 54
 categories: 
 - Norwegia2009

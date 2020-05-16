@@ -1,7 +1,7 @@
 ---
 layout: post
 title: English used books
-permalink: http://www.iwasz.pl/uncategorized/english-used-books/index.html
+permalink: /uncategorized/english-used-books/
 post_id: 36
 categories: 
 - Uncategorized

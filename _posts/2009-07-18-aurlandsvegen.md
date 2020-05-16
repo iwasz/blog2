@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Aurlandsvangen
-permalink: http://www.iwasz.pl/uncategorized/aurlandsvegen/index.html
+permalink: /uncategorized/aurlandsvegen/
 post_id: 61
 categories: 
 - Norwegia2009

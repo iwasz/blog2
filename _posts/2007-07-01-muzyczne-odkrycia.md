@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Muzyczne odkrycia.
-permalink: http://www.iwasz.pl/uncategorized/muzyczne-odkrycia/index.html
+permalink: /uncategorized/muzyczne-odkrycia/
 post_id: 16
 categories: 
 - Uncategorized

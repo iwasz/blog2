@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Szklana Pułapka 4.0
-permalink: http://www.iwasz.pl/uncategorized/szklana-pulapka-40/index.html
+permalink: /uncategorized/szklana-pulapka-40/
 post_id: 21
 categories: 
 - Uncategorized

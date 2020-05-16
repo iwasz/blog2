@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Wszystko ok
-permalink: http://www.iwasz.pl/uncategorized/wszystko-ok/index.html
+permalink: /uncategorized/wszystko-ok/
 post_id: 42
 categories: 
 - Norwegia2009

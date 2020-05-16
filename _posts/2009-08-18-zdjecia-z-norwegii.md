@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Zdjęcia z Norwegii
-permalink: http://www.iwasz.pl/uncategorized/zdjecia-z-norwegii/index.html
+permalink: /uncategorized/zdjecia-z-norwegii/
 post_id: 172
 categories: 
 - Uncategorized

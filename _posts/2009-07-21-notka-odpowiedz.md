@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Notka odpowiedź
-permalink: http://www.iwasz.pl/uncategorized/notka-odpowiedz/index.html
+permalink: /uncategorized/notka-odpowiedz/
 post_id: 67
 categories: 
 - Norwegia2009
