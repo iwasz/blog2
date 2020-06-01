@@ -14,7 +14,7 @@ I was dissatisfied with robot's performance, so I experimented a lot with variou
 
 ![Better motors picture](/assets/IMG_20180107_163408-e1516133185673-169x300.jpg)
 
-I decided, my first set of motors (Dagu DG02S 48:1) have to low torque on low RPM (driven from DRV8835 H-Bridge again with PWM). The robot was able to stand, but wiggled (video in the previous post). So I changed them to JK28HS32 stepper motors, which proved to be even weaker. They simply have to low torque in all RPM range for the weight of my robot. More disadvantages:
+I decided, my first set of motors (Dagu DG02S 48:1) have too low torque on low RPM (driven from DRV8835 H-Bridge again with PWM). The robot was able to stand, but wiggled (video in the previous post). So I changed them to JK28HS32 stepper motors, which proved to be even weaker. They simply have too low torque in all RPM range for the weight of my robot. More disadvantages:
 
 * Draws tons of current even when robot is stationary. This is because un-geared steppers (at least small ones) spin freely when unpowered and thus need current which hold them in position.
 * More complex electronics (1 H-bridge per motor instead of 1/2 per brushed one), and much more complex programming.	
