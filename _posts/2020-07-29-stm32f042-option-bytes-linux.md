@@ -5,12 +5,12 @@ permalink: /electronics/2020-07-29-stm32f042-option-bytes-linux/
 categories: 
 - electronics
 ---
-These are instructions that worked for me when faced with a problem of modifying option bytes in stm32f042.
+These are instructions that worked for me when faced with a problem of modifying option bytes in stm32f042. The thing I was trying to do was to turn off BOOT0 pin support (PB8 in my chip) which then would eliminate the need to pull it. Then I could use this pin for something else, for example as a `CANbus` `canRx` input.
 
 A bunch of useful links:
 * [Stack overflow question](https://stackoverflow.com/questions/48927028/openocd-how-to-write-option-bytes-to-stm32f4) which put me on the right track.
 * [Openocd manual](http://openocd.org/doc/html/General-Commands.html)
-* Reference manual od whatever chip you are using. The chapters of interest are entitled:
+* Reference manual of whatever chip you are using. The chapters of interest are entitled:
   * 3.2.2 Flash program and erase operation 
     * Unlocking the Flash memory
     * Option byte programming
@@ -32,7 +32,7 @@ Connect to the running `openocd` to get access to the interactive shell:
 telnet localhost 4444
 ```
 
-Verify that the **FLASH_CR.LOCK** is set, meaning that the entire flash is locked. Flash base address is : 0x40022000 which tells that **FLASH_OPTKEYR** address is 0x40022008 and **FLASH_CR** address is 0x40022010. Read FLASH_CR as so:
+Verify that the **FLASH_CR.LOCK** is set, meaning that the entire flash is locked. Flash base address is : 0x40022000 which tells that **FLASH_OPTKEYR** address is 0x40022008 and **FLASH_CR** address is 0x40022010. Read FLASH_CR as so (00000080 means the **LOCK** flag is set):
 
 ```sh
 mdw 0x40022010
