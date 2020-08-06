@@ -19,6 +19,11 @@ A bunch of useful links:
   * A.2.6 Option byte programming sequence code example
   * A.2.7 Option byte erasing sequence code example
 
+# TL;DR
+```sh
+openocd -f /home/iwasz/local/share/openocd/scripts/interface/stlink.cfg -f /home/iwasz/local/share/openocd/scripts/target/stm32f0x.cfg -c 'init; mww 0x40022004 0x45670123; mww 0x40022004 0xCDEF89AB; mww 0x40022008 0x45670123; mww 0x40022008 0xCDEF89AB; mww 0x40022010 0x00000220; mww 0x40022010 0x00000260; mww 0x40022010 0x00000210; mwh 0x1ffff800 0x55AA; mwh 0x1ffff802 0x807f; mdw 0x1ffff800'
+```
+
 # Preparation
 Turn the power on. Run the `openocd` (mind the paths):
 
