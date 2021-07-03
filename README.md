@@ -9,7 +9,7 @@ Remember to:
 bundle exec jekyll serve
 ```
 
-vscode task made uses **rsync**. It os configured as a "main build task" and can be accessed by "Ctrl-Shift-B". 
+vscode task made using **rsync**. It is configured as a "main build task" and can be accessed by "Ctrl-Shift-B". 
 
 Themes worth trying that I've found:
 * https://yous.github.io/whiteglass/2017/01/05/welcome-to-jekyll/
