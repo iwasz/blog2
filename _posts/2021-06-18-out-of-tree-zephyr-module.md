@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Out Of Tree Zephyr RTOS module
+title: Out Of Tree Zephyr RTOS module (driver)
 permalink: /electronics/2021-06-18-out-of-tree-zephyr-module.md/
 categories: 
 - electronics
@@ -134,7 +134,7 @@ if (!drv_data->gpio) {
 }
 ```
 
-Clearly, a problem with my overlay, but why? It seems the Zephyr build system did not see my binding files. [As stated here](https://docs.zephyrproject.org/latest/guides/dts/bindings.html?highlight=bindings#where-bindings-are-located) the `module.yml` has to point at the binding files. The resolution is to add:
+Clearly, a problem with my overlay, but why? It seems the Zephyr build system did not see my binding files. [As stated here](https://docs.zephyrproject.org/latest/guides/dts/bindings.html?highlight=bindings#where-bindings-are-located) the `module.yml` has to point at the binding files. The solution is to add:
 
 ```yaml
 settings:
@@ -181,6 +181,36 @@ cmake -B build -G Ninja -DBOARD=nucleo_h743zi -DBOARD_ROOT=. -DZEPHYR_EXTRA_MODU
 ninja -C build/
 west flash
 ```
+# A follow-up
+Sometimes it is convenient to have both the module and the application using it in one place. Thankfully there is an example in the Zephyr showing just that in `zephyr/samples/application_development/out_of_tree_driver`. Interestingly enough, when I tried to incorporate this example into one of my projects, I got an error during build:
+
+```
+[...]
+In declaration of void hello_world_print 
+Traceback (most recent call last):
+  File "/home/iwasz/workspace/zephyrproject/zephyr/scripts/gen_syscalls.py", line 450, in <module>
+    main()
+  File "/home/iwasz/workspace/zephyrproject/zephyr/scripts/gen_syscalls.py", line 379, in main
+    handler, inv, mrsh, sys_id, entry = analyze_fn(match_group)
+  File "/home/iwasz/workspace/zephyrproject/zephyr/scripts/gen_syscalls.py", line 324, in analyze_fn
+    func_type, func_name = typename_split(func)
+  File "/home/iwasz/workspace/zephyrproject/zephyr/scripts/gen_syscalls.py", line 143, in typename_split
+    raise SyscallParseException("Malformed system call invocation")
+__main__.SyscallParseException: Malformed system call invocation
+[6/178] Generating include/generated/kobj-types-enum.h, include/generated/otype-to-str.h, include/generated/otype-to-size.h
+ninja: build stopped: subcommand failed.
+```
+
+The cause was that I modified the `hello_world_driver.h`, and saved it, which in turn fired the `clang-format` tool (which uses my system-wide configuration). And this action alone broke the build completely (namely the lack of a space character after the function name and before the opening bracket is causing the problem). The solution is either to surround the problematic bit in `/* clang-format on/off */` guards:
+
+```c
+/* clang-format off */
+__syscall     void        hello_world_print(const struct device *dev);
+static inline void z_impl_hello_world_print(const struct device *dev)
+/* clang-format on */
+```
+
+Or to use the **.clang-format** file provided by Zephyr. I went with the second option and copied the mentioned file to the directory where my modules are. This way I can use my system-wide (and preferred) formatting for the user-space C++ code, and make the Zephyr build system happy at the same time.
 
 # TODO
-Make vscode happy. The IDE is overwhelmed by the project split into 3 separate directories or I don't know how to configure it. Let me know in the commensts you whereabouts on this. Also I do not know (an I've tried) how to have the module included inside the application directory. 
+Make vscode happy. The IDE is overwhelmed by the project split into 3 separate directories or I don't know how to configure it. Let me know in the comments you whereabouts on this. Also I do not know (an I've tried) how to have the module included inside the application directory. 

@@ -6,7 +6,7 @@
         {
             "label": "Deploy rsync-ing blog2 to iwasz.pl",
             "type": "shell",
-            "command": "rsync -azP _site/ iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html",
+            "command": "bundle exec jekyll build; rsync -azP _site/ iwasz@iwasz.pl:/home/iwasz/domains/iwasz.pl/public_html",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
